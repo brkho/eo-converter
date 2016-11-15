@@ -42,9 +42,9 @@ The current format is as follows:
 - [N BYTES]     The data corresponding to the indices in the model. This is an array of 32 bit ints.
 
 ## Usage
-./eo-converter input_file output_file
+./eo-converter input_mesh output_path input_map_matcher space_separated_list_of_map_types
 
-and then follow the on-screen instructions to define your material.
+where valid map types are: albedo, specular, gloss, normal, and ior. For example, `./eo-converter lamp.fbx lamp.eo assets/lamp_*.png albedo, specular, gloss, normal` which will create lamp.eo using the geometry found in lamp.fbx. The materials will use the imput map matcher, substituting strings like 'albedo', 'specular', and 'gloss' for the wildcard character * in the input map matcher. In this case, we will use materials corresponding to assets/lamp_albedo.png, assets/lamp_gloss.png, etc.
 
 ## Dependencies
 This project depends on:
