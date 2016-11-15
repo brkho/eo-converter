@@ -25,6 +25,11 @@ void converter::MeshConverter::Convert(std::string path) {
 
   for (unsigned int i = 0; i < scene->mNumMeshes; ++i) {
     const aiMesh* assimp_mesh = scene->mMeshes[i];
+    // The mesh must have texture coordinates. Maybe I can investigate removing this constraint
+    // later?
+    if (!assimp_mesh->HasTextureCoords(0)) {
+      throw converter::NoTextureCoordinatesException();
+    }
     for (unsigned int j = 0; j < assimp_mesh->mNumVertices; ++j) {
       converter::Vertex vertex;
       // Fix up these silly axes.

@@ -31,5 +31,13 @@ class InvalidMaterialTypeException : public std::exception {
     }
 };
 
+// When the mesh does not have texture coordinates.
+class NoTextureCoordinatesException : public std::exception {
+  public:
+    const char* what () const throw () {
+      return "Mesh must have texture coordinates.";
+    }
+};
+
 }
 #endif // CONVERTER_EXCEPTIONS_H
