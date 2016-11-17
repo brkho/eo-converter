@@ -32,16 +32,15 @@ void converter::MeshConverter::Convert(std::string path) {
     }
     for (unsigned int j = 0; j < assimp_mesh->mNumVertices; ++j) {
       converter::Vertex vertex;
-      // Fix up these silly axes.
-      vertex.position[0] = -assimp_mesh->mVertices[j].x;
-      vertex.position[1] = assimp_mesh->mVertices[j].z;
-      vertex.position[2] = assimp_mesh->mVertices[j].y;
-      vertex.normal[0] = -assimp_mesh->mNormals[j].x;
-      vertex.normal[1] = assimp_mesh->mNormals[j].z;
-      vertex.normal[2] = assimp_mesh->mNormals[j].y;
-      vertex.tangent[0] = -assimp_mesh->mTangents[j].x;
-      vertex.tangent[1] = assimp_mesh->mTangents[j].z;
-      vertex.tangent[2] = assimp_mesh->mTangents[j].y;
+      vertex.position[0] = assimp_mesh->mVertices[j].x;
+      vertex.position[1] = assimp_mesh->mVertices[j].y;
+      vertex.position[2] = assimp_mesh->mVertices[j].z;
+      vertex.normal[0] = assimp_mesh->mNormals[j].x;
+      vertex.normal[1] = assimp_mesh->mNormals[j].y;
+      vertex.normal[2] = assimp_mesh->mNormals[j].z;
+      vertex.tangent[0] = assimp_mesh->mTangents[j].x;
+      vertex.tangent[1] = assimp_mesh->mTangents[j].y;
+      vertex.tangent[2] = assimp_mesh->mTangents[j].z;
       vertex.uv[0] = assimp_mesh->mTextureCoords[0][j].x;
       vertex.uv[1] = assimp_mesh->mTextureCoords[0][j].y;
       vertices.push_back(vertex);
