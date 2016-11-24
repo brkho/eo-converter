@@ -1,6 +1,6 @@
 // This is the entry point of the Engine Object converter.
 // Usage: ./eo-converter input_mesh output_path input_map_matcher space_separated_list_of_map_types
-// where valid map types are: albedo, specular, gloss, normal, and ior. For example,
+// where valid map types are: albedo, specular, gloss, normal, ior, and ao. For example,
 // ./eo-converter lamp.fbx lamp.eo assets/lamp_*.png albedo, specular, gloss, normal
 // which will create lamp.eo using the geometry found in lamp.fbx. The materials will use the
 // imput map matcher, substituting strings like 'albedo', 'specular', and 'gloss' for the wildcard
@@ -17,7 +17,7 @@
 #include <string>
 #include <vector>
 
-const std::vector<std::string> MAP_TYPES {"albedo", "specular", "gloss", "ior", "normal"};
+const std::vector<std::string> MAP_TYPES {"albedo", "specular", "gloss", "ior", "normal", "ao"};
 
 void PrintError(const char* msg) {
   std::cerr << "ERROR: " << msg << std::endl;

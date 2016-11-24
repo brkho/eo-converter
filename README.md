@@ -33,6 +33,10 @@ The current format is as follows:
 
 - [N BYTES]     The (null-terminated) cstring containing the path to the normal map.
 
+- [1 BYTE]      Number of characters in the path to the ambient occlusion map (0 means no map).
+
+- [N BYTES]     The (null-terminated) cstring containing the path to the AO map.
+
 - [4 BYTES]     Number of vertices in the model.
 
 - [N BYTES]     The data corresponding to the vertices in the model. See the engine's Vertex struct for exact internal representation.
@@ -44,7 +48,7 @@ The current format is as follows:
 ## Usage
 ./eo-converter input_mesh output_path input_map_matcher space_separated_list_of_map_types
 
-where valid map types are: albedo, specular, gloss, normal, and ior. For example, `./eo-converter lamp.fbx lamp.eo assets/lamp_*.png albedo, specular, gloss, normal` which will create lamp.eo using the geometry found in lamp.fbx. The materials will use the imput map matcher, substituting strings like 'albedo', 'specular', and 'gloss' for the wildcard character * in the input map matcher. In this case, we will use materials corresponding to assets/lamp_albedo.png, assets/lamp_gloss.png, etc.
+where valid map types are: albedo, specular, gloss, normal, ior, and ao. For example, `./eo-converter lamp.fbx lamp.eo assets/lamp_*.png albedo, specular, gloss, normal` which will create lamp.eo using the geometry found in lamp.fbx. The materials will use the imput map matcher, substituting strings like 'albedo', 'specular', and 'gloss' for the wildcard character * in the input map matcher. In this case, we will use materials corresponding to assets/lamp_albedo.png, assets/lamp_gloss.png, etc.
 
 ## Dependencies
 This project depends on:
